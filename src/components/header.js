@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 
 
-export default function Header(props ) {
+export default function Header(props) {
     return (
         // return (
             // <div className="App">
@@ -11,7 +12,7 @@ export default function Header(props ) {
             // </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">TODO_LIST</a>
+            <a class="navbar-brand" href="#">{props.title}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,4 +35,11 @@ export default function Header(props ) {
         </nav>
         //   );
     ); 
+}
+Header.defaultProps = {
+    title: "Your title here"
+}
+
+Header.propTypes = {
+    title: PropTypes.string
 }

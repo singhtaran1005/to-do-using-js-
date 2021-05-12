@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const work = () => {
+export const Work = ({todo}) => {
     return (
         <div>
-            todo works
+                <h4>{todo.no}</h4>
+                <h4>{todo.title}</h4>
+                <button className="btn-danger">DELETE</button>
         </div>
     )
 }

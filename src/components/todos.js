@@ -3,21 +3,30 @@ import { Work } from "./work";
 
 
 export const Todos = (props) => {
+    let myStyle = {
+        minHeight: "70vh",
+        margin: "30px auto"
+    }
     return (
-        <div className="container">
+        <div className="container" style={myStyle}>
 
-            <h3 className="text-center my-3">Todos List </h3>
+            <h3 className=" my-3">Todos List </h3>
 
-            {           
-            //  document.write(props.todos.length),
+            {
+                //  document.write(props.todos.length),
 
-              props.todos.length === 0 ? "No todos to display" :
-                props.todos.map((todo) => {
-                    return <Work todo={todo} key={todo.no} onDelete={props.onDelete} />
-                })
+                props.todos.length === 0 ? "No todos to display" :
+                    props.todos.map((todo) => {
+                        return (
+                            <>
+                                <Work todo={todo} key={todo.no} onDelete={props.onDelete} />
+                                <hr/>
+
+                            </>)
+                    })
                 // )
             }
 
-        </div>
+        </div >
     )
 }

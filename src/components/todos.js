@@ -20,7 +20,7 @@ export const Todos = (props) => {
                         return (
                             <>
                                 <Work todo={todo} key={todo.no} onDelete={props.onDelete} />
-                                <hr/>
+                                <hr />
 
                             </>)
                     })

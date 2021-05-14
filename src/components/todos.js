@@ -18,11 +18,11 @@ export const Todos = (props) => {
                 props.todos.length === 0 ? "No todos to display" :
                     props.todos.map((todo) => {
                         return (
-                            <>
+                            
                                 <Work todo={todo} key={todo.no} onDelete={props.onDelete} />
-                                <hr />
+                                
 
-                            </>)
+                            )
                     })
                 // )
             }

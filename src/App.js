@@ -5,7 +5,10 @@ import Header from "./components/header";
 import { Todos } from "./components/todos";
 import { Footer } from "./components/footer";
 import { Add_todo } from "./components/add_todo";
+import { About } from "./components/about";
 import React, { useState, useEffect } from "react";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   //checking for null
@@ -29,9 +32,9 @@ function App() {
   };
 
   const addTodo = (title) => {
-    console.log("Add title", title);
+    // console.log("Add title", title);
     let no;
-    if (todos.length == 0) {
+    if (todos.length === 0) {
       no = 1;
     } else {
       no = todos[todos.length - 1].no + 1; //add todos number
@@ -41,7 +44,7 @@ function App() {
       title: title,
     };
     setTodos([...todos, myTodo]);
-    console.log(myTodo);
+    // console.log(myTodo);
 
     //if undefined change to json format todos ->
 
@@ -78,10 +81,29 @@ function App() {
 
   return (
     <>
-      <Header title="hey" />
-      <Add_todo addTodo={addTodo}></Add_todo>
-      <Todos todos={todos} onDelete={onDelete} />
-      <Footer></Footer>
+      <Router>
+        <Header title="MY Todo List" />
+
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return (
+                <>
+                  <Add_todo addTodo={addTodo}></Add_todo>
+                  <Todos todos={todos} onDelete={onDelete} />
+                </>
+              );
+            }}
+          ></Route>
+          <Route exact path="/about">
+            <About/>
+          </Route>
+        </Switch>
+
+        <Footer></Footer>
+      </Router>
     </>
   );
 }

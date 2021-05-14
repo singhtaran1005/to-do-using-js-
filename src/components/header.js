@@ -1,34 +1,53 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-
+import React from "react";
+import PropTypes from "prop-types";
+import { BrowserRouter as Link } from "react-router-dom";
 
 export default function Header(props) {
   return (
     // return (
-    // <div className="App">
+    // <div classNameName="App">
     //   {/* <h3>fjak</h3> */
     //     9}
     // </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">{props.title}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">
+          {props.title}
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link active" aria-current="page" to="/">
+                Home
+              </Link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">
+                About
+              </Link>
             </li>
-
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <form className="d-flex">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-success" type="submit">
+              Search
+            </button>
           </form>
         </div>
       </div>
@@ -37,9 +56,9 @@ export default function Header(props) {
   );
 }
 Header.defaultProps = {
-  title: "Your title here"
-}
+  title: "Your title here",
+};
 
 Header.propTypes = {
-  title: PropTypes.string
-}
+  title: PropTypes.string,
+};
